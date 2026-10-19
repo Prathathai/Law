@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LAW QUEST THAILAND</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@600;800&family=Sarabun:wght@400;600&display=swap">
+<style>
+:root{--n:#12254a;--n2:#1d3668;--g:#b8902f;--gl:#f3e9cf;--bg:#f8f6f0;--t:#1a2233;--m:#5a6478;--ok:#1f7a4d;--no:#b3392f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:17px/1.65 Sarabun,'Noto Sans Thai',sans-serif;padding-bottom:84px}
+h1,h2,h3{font-family:'Noto Serif Thai',serif;line-height:1.35;margin:0 0 .5em;color:var(--n)}
+a{color:var(--n2)}
+header{background:var(--n);color:#fff;padding:14px 18px;border-bottom:4px solid var(--g)}
+header a{color:#fff;text-decoration:none;font:800 18px 'Noto Serif Thai',serif;letter-spacing:.04em}
+header span{color:var(--g)}
+main{max-width:760px;margin:0 auto;padding:18px}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--n);display:flex;border-top:3px solid var(--g);z-index:5}
+nav a{flex:1;text-align:center;color:#c9d2e6;text-decoration:none;padding:8px 2px;font-size:13px}
+nav a b{display:block;font-size:20px;font-weight:400}
+nav a.on{color:#fff;background:var(--n2)}
+.hero{background:var(--n);color:#fff;border-radius:6px;padding:28px 22px;border-left:8px solid var(--g)}
+.hero h1{color:#fff;font-size:30px;margin-bottom:.3em}
+.hero p{color:#d7deee;margin:.4em 0 1.2em}
+.btn,button.btn{display:inline-block;background:var(--g);color:#fff;border:0;border-radius:4px;padding:12px 22px;font:600 17px Sarabun,sans-serif;text-decoration:none;cursor:pointer}
+.btn.o{background:none;border:2px solid var(--n);color:var(--n)}
+.stats{display:flex;gap:10px;margin:14px 0}
+.stats div{flex:1;background:#fff;border:1px solid #e3dfd0;border-radius:4px;padding:10px;text-align:center}
+.stats b{display:block;font:800 22px 'Noto Serif Thai',serif;color:var(--n)}
+.stats small{color:var(--m)}
+.gc{background:#fff;border:1px solid #e3dfd0;border-top:6px solid var(--n);border-radius:4px 4px 6px 6px;padding:16px;margin:0 0 14px;position:relative}
+.gc .ic{font-size:30px;float:right;margin-left:10px}
+.gc p{margin:.2em 0 .8em;color:var(--m)}
+.tag{display:inline-block;background:var(--gl);color:#6b5210;border-radius:3px;padding:0 8px;font-size:14px;margin-right:6px}
+.card{background:#fff;border:1px solid #e3dfd0;border-radius:6px;padding:18px;margin-bottom:12px}
+.card h2{font-size:20px}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #cfd6e6;border-radius:5px;padding:12px 14px;margin:9px 0;font:17px Sarabun,sans-serif;color:var(--t);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--n2)}
+.opt.ok{border-color:var(--ok);background:#e6f4ec}
+.opt.no{border-color:var(--no);background:#fbe9e7}
+.bar{display:flex;justify-content:space-between;color:var(--m);font-weight:600;margin-bottom:8px}
+.tm{height:8px;background:#e3dfd0;border-radius:4px;margin-bottom:12px;overflow:hidden}
+.tm i{display:block;height:100%;width:100%;background:var(--g);transition:width 1s linear}
+.exp{border-left:6px solid var(--ok);background:#fff;padding:14px 16px;border-radius:4px}
+.exp.n{border-color:var(--no)}
+.exp p{margin:.3em 0 .9em}
+.big{font:800 52px 'Noto Serif Thai',serif;color:var(--g);text-align:center;margin:6px 0}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bd{background:#fff;border:1px solid #e3dfd0;border-radius:4px;padding:10px;text-align:center;font-size:15px}
+.bd.off{opacity:.4;filter:grayscale(1)}
+.bd b{display:block;font-size:30px;font-weight:400}
+input,select{width:100%;padding:11px;border:2px solid #cfd6e6;border-radius:4px;font:17px Sarabun,sans-serif;margin-bottom:10px;background:#fff}
+.dis{font-size:14px;color:var(--m);border-top:1px solid #ddd8c6;margin-top:22px;padding-top:12px}
+li{margin-bottom:6px}
+@media(min-width:700px){.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.gc{margin:0}}
+@media(prefers-reduced-motion:reduce){.tm i{transition:none}}
+</style>
+</head>
+<body>
+<header><a href="#/home">⚖ LAW QUEST <span>THAILAND</span></a></header>
+<main id="app"></main>
+<nav>
+<a href="#/home" data-p="home"><b>🏠</b>หน้าแรก</a>
+<a href="#/games" data-p="games"><b>🔨</b>เกม</a>
+<a href="#/know" data-p="know"><b>📖</b>ความรู้</a>
+<a href="#/me" data-p="me"><b>🏅</b>ผลงาน</a>
+<a href="#/refs" data-p="refs"><b>🏛️</b>อ้างอิง</a>
+</nav>
+<script>
+const CATS={kid:'สิทธิเด็กและเยาวชน',crim:'กฎหมายอาญา',civil:'แพ่งและพาณิชย์',cons:'ผู้บริโภคและซื้อขายออนไลน์',traf:'กฎหมายจราจร',soc:'สื่อสังคมออนไลน์',cn:'รัฐธรรมนูญและสิทธิประชาชน',just:'กระบวนการยุติธรรม'};
+const T=(c,q,a,e)=>[c,q,null,a,e];
+// เพิ่มเกม/คำถามได้ที่นี่: item = [หมวด, คำถาม, ตัวเลือก(หรือ null ใช้ของเกม), index คำตอบที่ถูก, คำอธิบาย]
+const G=[
+{id:'quiz',ic:'🔨',t:'LAW QUIZ',d:'ตอบคำถามกฎหมายแบบจับเวลา ตอบเร็วได้คะแนนโบนัส',how:'มีเวลา 20 วินาทีต่อข้อ เลือกคำตอบก่อนเวลาหมด ถูกได้ 10 คะแนน บวกโบนัสตามเวลาที่เหลือ',time:20,items:[
+['crim','เด็กอายุไม่เกินกี่ปี ไม่ต้องรับโทษทางอาญา',['10 ปี','12 ปี','15 ปี'],1,'ประมวลกฎหมายอาญา มาตรา 73 (ตามที่แก้ไขล่าสุด) กำหนดว่าเด็กอายุไม่เกิน 12 ปีไม่ต้องรับโทษ'],
+['civil','โดยทั่วไป บุคคลบรรลุนิติภาวะเมื่ออายุเท่าใด',['18 ปีบริบูรณ์','20 ปีบริบูรณ์','21 ปีบริบูรณ์'],1,'ประมวลกฎหมายแพ่งและพาณิชย์ มาตรา 19 กำหนดให้บรรลุนิติภาวะเมื่ออายุ 20 ปีบริบูรณ์ หรือเมื่อสมรสโดยชอบด้วยกฎหมาย'],
+['cons','สายด่วนร้องเรียนผู้บริโภค 1166 เป็นของหน่วยงานใด',['สคบ.','กสทช.','ป.ป.ช.'],0,'สำนักงานคณะกรรมการคุ้มครองผู้บริโภค (สคบ.) รับเรื่องร้องเรียนผ่านสายด่วน 1166'],
+['traf','ผู้ขับขี่และผู้ซ้อนท้ายรถจักรยานยนต์ต้องทำสิ่งใดตามกฎหมายจราจร',['สวมหมวกนิรภัย','ติดสติกเกอร์สะท้อนแสง','พกอุปกรณ์ปฐมพยาบาล'],0,'พ.ร.บ.จราจรทางบก กำหนดให้ผู้ขับขี่และผู้โดยสารรถจักรยานยนต์สวมหมวกนิรภัย ฝ่าฝืนมีโทษปรับ'],
+['just','ข้อใดเป็นสิทธิของผู้ถูกจับ',['ได้รับแจ้งข้อกล่าวหาและพบทนายความ','ไม่ต้องมีการแจ้งข้อกล่าวหา','ห้ามติดต่อใครทั้งสิ้น'],0,'ประมวลกฎหมายวิธีพิจารณาความอาญา มาตรา 7/1 รับรองสิทธิของผู้ถูกจับ เช่น ได้รับแจ้งข้อกล่าวหา ให้การหรือไม่ให้การ และพบทนายความ']]},
+{id:'tf',ic:'⚖️',t:'TRUE OR FALSE',d:'ตัดสินว่าข้อความกฎหมายถูกหรือผิด พร้อมเฉลยทันที',how:'อ่านข้อความแล้วกด "ถูก" หรือ "ผิด" จากนั้นอ่านเฉลยเพื่อทำความเข้าใจ',opts:['ถูก','ผิด'],items:[
+T('soc','การแชร์โพสต์ที่ใส่ร้ายผู้อื่น ผู้แชร์ไม่มีความรับผิด เพราะไม่ได้เป็นคนเขียนเอง',1,'ผู้ที่เผยแพร่ต่อข้อความซึ่งอาจทำให้ผู้อื่นเสียหายอาจมีความรับผิดทางกฎหมายได้ ขึ้นอยู่กับข้อเท็จจริงแต่ละกรณี จึงควรตรวจสอบก่อนแชร์'),
+T('just','ผู้ต้องหาหรือจำเลยต้องถูกปฏิบัติเสมือนไม่ได้กระทำผิด จนกว่าจะมีคำพิพากษาถึงที่สุด',0,'รัฐธรรมนูญ มาตรา 29 วางหลักว่าก่อนมีคำพิพากษาอันถึงที่สุด จะปฏิบัติต่อบุคคลเสมือนเป็นผู้กระทำความผิดมิได้'),
+T('civil','ผู้เยาว์ทำสัญญาโดยไม่ได้รับความยินยอมจากผู้แทนโดยชอบธรรม โดยทั่วไปสัญญานั้นเป็นโมฆียะ (บอกล้างได้)',0,'ประมวลกฎหมายแพ่งและพาณิชย์ มาตรา 21 มีข้อยกเว้นบางกรณี เช่น นิติกรรมที่ได้ประโยชน์อย่างเดียว หรือที่จำเป็นต่อการดำรงชีพตามสมควร'),
+T('kid','เด็กอายุ 14 ปี นายจ้างจ้างทำงานเป็นลูกจ้างได้เหมือนผู้ใหญ่',1,'พ.ร.บ.คุ้มครองแรงงาน ห้ามนายจ้างจ้างเด็กอายุต่ำกว่า 15 ปีเป็นลูกจ้าง')]},
+{id:'rd',ic:'🏛️',t:'RIGHTS & DUTIES',d:'จัดประเภทสิ่งที่กฎหมายกำหนดว่าเป็นสิทธิหรือหน้าที่ของประชาชน',how:'อ่านสถานการณ์แล้วเลือกว่าเป็น "สิทธิ" หรือ "หน้าที่" ตามรัฐธรรมนูญ',opts:['สิทธิ','หน้าที่'],items:[
+T('cn','การได้รับการศึกษา 12 ปีโดยไม่เสียค่าใช้จ่าย',0,'รัฐธรรมนูญ มาตรา 54 กำหนดให้รัฐดำเนินการให้เด็กทุกคนได้รับการศึกษา 12 ปีโดยไม่เก็บค่าใช้จ่าย จึงเป็นสิทธิของเด็ก'),
+T('cn','การเสียภาษีอากรตามที่กฎหมายบัญญัติ',1,'รัฐธรรมนูญ มาตรา 50 ระบุการเสียภาษีอากรเป็นหน้าที่ของบุคคล'),
+T('cn','การแสดงความคิดเห็นโดยเสรีภายใต้กรอบของกฎหมาย',0,'รัฐธรรมนูญ มาตรา 34 รับรองเสรีภาพในการแสดงความคิดเห็น แต่ต้องไม่ละเมิดสิทธิของผู้อื่นและต้องเป็นไปตามกฎหมาย'),
+T('cn','การไปใช้สิทธิเลือกตั้ง',1,'รัฐธรรมนูญ มาตรา 50 ระบุการไปใช้สิทธิเลือกตั้งเป็นหน้าที่ของบุคคลด้วย')]},
+{id:'match',ic:'📖',t:'MATCH THE LAW',d:'จับคู่สถานการณ์จำลองกับหมวดกฎหมายที่เกี่ยวข้อง',how:'อ่านสถานการณ์จำลอง แล้วเลือกหมวดกฎหมายที่เกี่ยวข้องมากที่สุด',items:[
+['cons','(กรณีจำลอง) สมชายสั่งโทรศัพท์ทางออนไลน์ แต่ได้รับสินค้าไม่ตรงกับที่โฆษณา',['กฎหมายผู้บริโภค','กฎหมายจราจร','กฎหมายอาญา'],0,'ปัญหาการซื้อขายสินค้าและบริการเกี่ยวข้องกับกฎหมายคุ้มครองผู้บริโภค ผู้บริโภคร้องเรียนได้ที่ สคบ. สายด่วน 1166'],
+['traf','(กรณีจำลอง) วิชัยขับรถจักรยานยนต์ย้อนศรบนถนนที่กำหนดให้วิ่งทางเดียว',['กฎหมายจราจร','กฎหมายสิทธิเด็ก','กฎหมายแพ่ง'],0,'การขับขี่บนถนนอยู่ภายใต้ พ.ร.บ.จราจรทางบก ซึ่งกำหนดทิศทางการจราจรและโทษปรับ'],
+['soc','(กรณีจำลอง) มานีโพสต์ข้อความในโซเชียลที่อาจทำให้ผู้อื่นเสียชื่อเสียง',['กฎหมายสื่อสังคมออนไลน์และหมิ่นประมาท','กฎหมายจราจร','กฎหมายผู้บริโภค'],0,'การโพสต์บนโซเชียลอาจเกี่ยวข้องกับกฎหมายหมิ่นประมาทและกฎหมายคอมพิวเตอร์ ขึ้นอยู่กับข้อเท็จจริงของแต่ละกรณี'],
+['just','(กรณีจำลอง) เยาวชนอายุ 16 ปีถูกกล่าวหาว่ากระทำความผิดและต้องเข้าสู่กระบวนการพิจารณา',['กระบวนการยุติธรรม (ศาลเยาวชนและครอบครัว)','กฎหมายจราจร','กฎหมายผู้บริโภค'],0,'คดีที่เด็กและเยาวชนถูกกล่าวหาจะอยู่ในกระบวนการของศาลเยาวชนและครอบครัว ซึ่งมีหลักการคุ้มครองเด็กเป็นพิเศษ']]},
+{id:'wtd',ic:'📁',t:'WHAT SHOULD YOU DO?',d:'เลือกวิธีรับมือเมื่อพบปัญหาในชีวิตประจำวัน',how:'อ่านสถานการณ์จำลองแล้วเลือกแนวทางที่เหมาะสมที่สุด',items:[
+['cons','(กรณีจำลอง) คุณสั่งของออนไลน์ ผู้ขายส่งผิดชิ้นและไม่ตอบแชต ควรทำอะไรก่อน',['เก็บหลักฐาน เช่น แชต สลิป หน้าประกาศขาย แล้วร้องเรียนแพลตฟอร์มหรือ สคบ. 1166','โพสต์ประจานร้านค้าทันที','ยอมจบเพราะเสียเงินไม่มาก'],0,'หลักฐานช่วยให้ร้องเรียนได้ชัดเจน ส่วนการโพสต์ประจานอาจทำให้ผู้โพสต์มีความรับผิดเสียเอง'],
+['soc','(กรณีจำลอง) เพื่อนของคุณถูกโพสต์ภาพส่วนตัวโดยไม่ได้รับอนุญาต ควรทำอย่างไร',['แคปหลักฐาน แจ้งลบกับแพลตฟอร์ม และปรึกษาผู้ปกครองหรือครู','แชร์ต่อให้คนช่วยกันตำหนิ','ไม่ทำอะไรเลย'],0,'ข้อมูลส่วนบุคคลได้รับความคุ้มครองตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล การเก็บหลักฐานและแจ้งแพลตฟอร์มคือขั้นแรกที่ปลอดภัย'],
+['just','(กรณีจำลอง) คุณถูกตำรวจเรียกไปให้ปากคำและยังไม่เข้าใจขั้นตอน ควรทำอย่างไร',['ขอทราบข้อกล่าวหา และขอให้มีทนายความหรือผู้ที่ไว้วางใจอยู่ด้วย','เซ็นเอกสารทุกฉบับทันทีเพื่อให้จบเร็ว','หนีไม่ไปพบ'],0,'ผู้ถูกกล่าวหามีสิทธิได้รับทราบข้อกล่าวหาและมีทนายความหรือผู้ไว้วางใจร่วมฟังการสอบปากคำ ไม่ควรลงชื่อในสิ่งที่ไม่เข้าใจ']]}
+];
+const $=s=>document.querySelector(s),qa=s=>[...document.querySelectorAll(s)],app=h=>$('#app').innerHTML=h;
+const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let H=[];try{H=JSON.parse(localStorage.getItem('lqt')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('lqt',JSON.stringify(H))}catch(e){}};
+const DIS='<p class="dis">เว็บไซต์นี้จัดทำเพื่อการศึกษา ไม่ใช่คำปรึกษากฎหมายเฉพาะบุคคล สถานการณ์ในเกมเป็นกรณีจำลอง ไม่ได้ชี้ว่าบุคคลใดกระทำผิด และกฎหมายอาจแก้ไขเปลี่ยนแปลงได้ ควรตรวจสอบกับแหล่งอ้างอิงทางการหรือผู้ประกอบวิชาชีพกฎหมายก่อนนำไปใช้</p>';
+const BD=h=>[
+{ic:'🚩',t:'เริ่มต้นเส้นทาง',d:'เล่นครบ 1 รอบ',g:h.length>=1},
+{ic:'💯',t:'ตอบถูกทุกข้อ',d:'ได้เต็มในรอบเดียว',g:h.some(x=>x.ok==x.n)},
+{ic:'🧭',t:'นักสำรวจ',d:'เล่นครบทุกเกม',g:new Set(h.map(x=>x.g)).size>=G.length},
+{ic:'📚',t:'นักฝึกฝน',d:'เล่นครบ 5 รอบ',g:h.length>=5}];
+const best=id=>Math.max(0,...H.filter(x=>x.g==id).map(x=>x.s));
+let tm;
+const V={};
+V.home=()=>app(`<div class=hero><h1>เรียนกฎหมายไทย<br>ผ่านเกมสถานการณ์จำลอง</h1><p>สำหรับนักเรียน เยาวชน และประชาชนทั่วไป เล่นได้ทันที ไม่ต้องสมัครสมาชิก</p><a class=btn href="#/games">เริ่มเล่นเกม</a></div>
+<div class=stats><div><b>${G.length}</b><small>เกม</small></div><div><b>${G.reduce((n,g)=>n+g.items.length,0)}</b><small>ข้อ</small></div><div><b>${H.length}</b><small>รอบที่เล่น</small></div></div>
+<div class=card><h3>วิธีใช้งาน</h3><ol><li>เลือกเกมที่หน้า "เกม" และอ่านวิธีเล่น</li><li>ตอบคำถามแล้วอ่านคำอธิบายหลังตอบทุกข้อ</li><li>สะสมเหรียญตราและดูประวัติที่หน้า "ผลงาน"</li><li>ค้นหาเนื้อหาตามหมวดที่หน้า "ความรู้"</li></ol></div>${DIS}`);
+V.games=()=>app(`<h2>เลือกเกม</h2><div class=grid>${G.map(g=>`<div class=gc><span class=ic>${g.ic}</span><h3>${g.t}</h3><p>${g.d}</p><span class=tag>${g.items.length} ข้อ</span><span class=tag>คะแนนสูงสุด ${best(g.id)}</span><br><br><a class=btn href="#/play/${g.id}">เล่นเกม</a></div>`).join('')}</div>${DIS}`);
+V.know=()=>{app(`<h2>ค้นหาความรู้กฎหมาย</h2><input id=s placeholder="พิมพ์คำค้น เช่น ผู้เยาว์ ภาษี หมวกนิรภัย"><select id=c><option value="">ทุกหมวด</option>${Object.entries(CATS).map(([k,v])=>`<option value=${k}>${v}</option>`).join('')}</select><div id=r></div>${DIS}`);
+const all=G.flatMap(g=>g.items),f=()=>{const s=$('#s').value.trim(),c=$('#c').value,l=all.filter(i=>(!c||i[0]==c)&&(!s||(i[1]+i[4]).includes(s)));$('#r').innerHTML=l.length?l.map(i=>`<div class=card><span class=tag>${CATS[i[0]]}</span><p>${i[4]}</p></div>`).join(''):'<p>ไม่พบเนื้อหา ลองเปลี่ยนคำค้นหรือเลือกทุกหมวด</p>'};
+$('#s').oninput=f;$('#c').onchange=f;f()};
+V.me=()=>{const n=H.reduce((a,x)=>a+x.n,0),k=H.reduce((a,x)=>a+x.ok,0);
+app(`<h2>ผลการเรียนรู้</h2><div class=stats><div><b>${H.length}</b><small>รอบ</small></div><div><b>${H.reduce((a,x)=>a+x.s,0)}</b><small>คะแนนรวม</small></div><div><b>${n?Math.round(k/n*100):0}%</b><small>ตอบถูก</small></div></div>
+<h3>เหรียญตรา</h3><div class=badges>${BD(H).map(b=>`<div class="bd ${b.g?'':'off'}"><b>${b.ic}</b>${b.t}<br><small>${b.d}</small></div>`).join('')}</div>
+<h3 style="margin-top:20px">ประวัติการเล่น</h3>${H.length?H.slice(-10).reverse().map(x=>`<div class=card>${G.find(g=>g.id==x.g).t}: ถูก ${x.ok}/${x.n} ข้อ · ${x.s} คะแนน<br><small>${new Date(x.d).toLocaleString('th-TH')}</small></div>`).join('')+'<button class="btn o" id=rs>ล้างประวัติ</button>':'<p>ยังไม่มีประวัติ <a href="#/games">เริ่มเล่นเกมแรก</a></p>'}${DIS}`);
+if($('#rs'))$('#rs').onclick=()=>{if(confirm('ล้างประวัติและเหรียญตราทั้งหมด?')){H=[];save();V.me()}}};
+V.refs=()=>app(`<h2>แหล่งอ้างอิงและหน่วยงาน</h2><div class=card><ul>
+<li><a href="https://ratchakitcha.soc.go.th" target=_blank rel=noopener>ราชกิจจานุเบกษา</a> ประกาศและกฎหมายฉบับทางการ</li>
+<li><a href="https://www.krisdika.go.th" target=_blank rel=noopener>สำนักงานคณะกรรมการกฤษฎีกา</a> ฐานข้อมูลกฎหมาย</li>
+<li><a href="https://www.ocpb.go.th" target=_blank rel=noopener>สคบ.</a> คุ้มครองผู้บริโภค สายด่วน 1166</li>
+<li><a href="https://www.coj.go.th" target=_blank rel=noopener>ศาลยุติธรรม</a> ข้อมูลกระบวนการพิจารณาคดี</li></ul></div>${DIS}`);
+V.play=id=>{const g=G.find(x=>x.id==id);if(!g)return V.games();
+let q=sh(g.items.slice()),i=0,sc=0,ok=0,left=0,lock=0;
+app(`<h2>${g.ic} ${g.t}</h2><div class=card><p>${g.how}</p><p><small>มี ${q.length} ข้อ${g.time?' · จับเวลา':''}</small></p><button class=btn id=go>เริ่มเกม</button> <a class="btn o" href="#/games">เลือกเกมอื่น</a></div>`);
+$('#go').onclick=ask;
+function ask(){const it=q[i],o=it[2]||g.opts;lock=0;const ord=g.opts?o.map((_,k)=>k):sh(o.map((_,k)=>k));
+app(`<div class=bar><span>ข้อ ${i+1}/${q.length}</span><span>คะแนน ${sc}</span></div>${g.time?'<div class=tm><i id=tb></i></div>':''}<div class=card><span class=tag>${CATS[it[0]]}</span><h2>${it[1]}</h2>${ord.map(k=>`<button class=opt data-k=${k}>${o[k]}</button>`).join('')}</div><div id=fb></div>`);
+qa('.opt').forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+if(g.time){left=g.time;tm=setInterval(()=>{left--;$('#tb').style.width=left/g.time*100+'%';if(left<=0)pick(-1)},1000)}}
+function pick(k){if(lock)return;lock=1;clearInterval(tm);const it=q[i],r=k==it[3];if(r){ok++;sc+=10+(g.time?Math.ceil(left/4):0)}
+qa('.opt').forEach(b=>{b.disabled=true;const n=+b.dataset.k;if(n==it[3])b.classList.add('ok');else if(n==k)b.classList.add('no')});
+$('#fb').innerHTML=`<div class="exp ${r?'':'n'}"><b>${k<0?'หมดเวลา':r?'ถูกต้อง':'ยังไม่ถูกต้อง'}</b><p>${it[4]}</p><button class=btn id=nx>${i+1<q.length?'ข้อต่อไป':'ดูผลสรุป'}</button></div>`;
+$('#nx').scrollIntoView({block:'center'});$('#nx').onclick=()=>{i++;i<q.length?ask():end()}}
+function end(){const before=BD(H).filter(b=>b.g).length;H.push({g:g.id,s:sc,ok,n:q.length,d:Date.now()});save();const nb=BD(H).filter(b=>b.g).length-before;
+app(`<div class=card style="text-align:center"><h2>สรุปผล ${g.t}</h2><div class=big>${sc}</div><p>ตอบถูก ${ok} จาก ${q.length} ข้อ<br>${ok==q.length?'ยอดเยี่ยม ตอบถูกทุกข้อ':ok>=q.length/2?'ทำได้ดี ลองทบทวนข้อที่พลาดที่หน้า "ความรู้"':'ลองเล่นอีกครั้ง และอ่านคำอธิบายให้ละเอียดขึ้น'}</p>${nb>0?`<p><b>🏅 ได้รับเหรียญตราใหม่ ${nb} รางวัล</b> ดูได้ที่หน้า "ผลงาน"</p>`:''}<button class=btn id=ag>เล่นอีกครั้ง</button> <a class="btn o" href="#/games">เกมอื่น</a> <a class="btn o" href="#/home">หน้าแรก</a></div>${DIS}`);
+$('#ag').onclick=()=>V.play(id)}};
+function route(){clearInterval(tm);const h=location.hash.slice(2).split('/'),p=h[0]||'home';(V[p]||V.home)(h[1]);qa('nav a').forEach(a=>a.classList.toggle('on',a.dataset.p==p||(p=='play'&&a.dataset.p=='games')));scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
